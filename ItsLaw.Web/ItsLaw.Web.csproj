@@ -1,0 +1,742 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.3.4.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.3.4.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5290ABDA-4C86-4ED1-8978-76AD0F3CAE11}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ItsLaw.Web</RootNamespace>
+    <AssemblyName>ItsLaw.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+    <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.0.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.10.1\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Scripts\popper-utils.js" />
+    <Content Include="Content\Scripts\popper-utils.min.js" />
+    <Content Include="Content\Scripts\popper.js" />
+    <Content Include="Content\Scripts\popper.min.js" />
+    <Content Include="Content\Static\bootstrap.css" />
+    <Content Include="Content\vendor\metisMenu\metisMenu.css" />
+    <Content Include="Content\vendor\metisMenu\metisMenu.js" />
+    <Content Include="Content\vendor\metisMenu\metisMenu.min.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\ItslawStyle.css" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <None Include="Content\Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Content\Scripts\jquery-1.10.2.js" />
+    <Content Include="Content\Scripts\jquery-1.10.2.min.js" />
+    <None Include="Content\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Content\Scripts\jquery.validate.js" />
+    <Content Include="Content\Scripts\jquery.validate.min.js" />
+    <Content Include="Content\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Content\Scripts\jquery.validate.unobtrusive.method.cnpj.js" />
+    <Content Include="Content\Scripts\jquery.validate.unobtrusive.method.cpf.js" />
+    <Content Include="Content\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Content\Scripts\modernizr-2.6.2.js" />
+    <Content Include="Content\ItslawCoresStyle.css" />
+    <Content Include="Content\vendor\jquery\bootbox.js" />
+    <Content Include="Content\vendor\jquery\bootbox.min.js" />
+    <Content Include="Content\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\autoFill.bootstrap.js" />
+    <Content Include="Content\vendor\jquery\DataTables\autoFill.bootstrap.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\autoFill.bootstrap4.js" />
+    <Content Include="Content\vendor\jquery\DataTables\autoFill.bootstrap4.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\autoFill.foundation.js" />
+    <Content Include="Content\vendor\jquery\DataTables\autoFill.foundation.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\autoFill.jqueryui.js" />
+    <Content Include="Content\vendor\jquery\DataTables\autoFill.jqueryui.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\autoFill.semanticui.js" />
+    <Content Include="Content\vendor\jquery\DataTables\autoFill.semanticui.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\buttons.bootstrap.js" />
+    <Content Include="Content\vendor\jquery\DataTables\buttons.bootstrap.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\buttons.bootstrap4.js" />
+    <Content Include="Content\vendor\jquery\DataTables\buttons.bootstrap4.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\buttons.colVis.js" />
+    <Content Include="Content\vendor\jquery\DataTables\buttons.colVis.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\buttons.flash.js" />
+    <Content Include="Content\vendor\jquery\DataTables\buttons.flash.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\buttons.foundation.js" />
+    <Content Include="Content\vendor\jquery\DataTables\buttons.foundation.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\buttons.html5.js" />
+    <Content Include="Content\vendor\jquery\DataTables\buttons.html5.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\buttons.jqueryui.js" />
+    <Content Include="Content\vendor\jquery\DataTables\buttons.jqueryui.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\buttons.print.js" />
+    <Content Include="Content\vendor\jquery\DataTables\buttons.print.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\buttons.semanticui.js" />
+    <Content Include="Content\vendor\jquery\DataTables\buttons.semanticui.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.autoFill.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.autoFill.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.bootstrap.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.bootstrap.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.bootstrap4.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.bootstrap4.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.buttons.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.buttons.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.colReorder.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.colReorder.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.fixedColumns.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.fixedColumns.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.fixedHeader.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.fixedHeader.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.foundation.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.foundation.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.jqueryui.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.jqueryui.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.keyTable.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.keyTable.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.material.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.material.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.responsive.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.responsive.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.rowGroup.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.rowGroup.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.rowReorder.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.rowReorder.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.scroller.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.scroller.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.select.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.select.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.semanticui.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.semanticui.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.uikit.js" />
+    <Content Include="Content\vendor\jquery\DataTables\dataTables.uikit.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\jquery.dataTables.js" />
+    <Content Include="Content\vendor\jquery\DataTables\jquery.dataTables.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\responsive.bootstrap.js" />
+    <Content Include="Content\vendor\jquery\DataTables\responsive.bootstrap.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\responsive.bootstrap4.js" />
+    <Content Include="Content\vendor\jquery\DataTables\responsive.bootstrap4.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\responsive.foundation.js" />
+    <Content Include="Content\vendor\jquery\DataTables\responsive.foundation.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\responsive.jqueryui.js" />
+    <Content Include="Content\vendor\jquery\DataTables\responsive.jqueryui.min.js" />
+    <Content Include="Content\vendor\jquery\DataTables\responsive.semanticui.js" />
+    <Content Include="Content\vendor\jquery\DataTables\responsive.semanticui.min.js" />
+    <Content Include="Content\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="Content\Scripts\popper-utils.js.map" />
+    <Content Include="Content\Scripts\popper-utils.min.js.map" />
+    <Content Include="Content\Scripts\popper.js.map" />
+    <Content Include="Content\Scripts\popper.min.js.map" />
+    <None Include="Content\vendor\jquery\jquery-1.10.2.intellisense.js" />
+    <Content Include="Content\vendor\jquery\jquery-1.10.2.js" />
+    <Content Include="Content\vendor\jquery\jquery-1.10.2.min.js" />
+    <None Include="Content\vendor\jquery\jquery.validate-vsdoc.js" />
+    <Content Include="Content\vendor\jquery\jquery.validate.js" />
+    <Content Include="Content\vendor\jquery\jquery.validate.min.js" />
+    <Content Include="Content\vendor\jquery\jquery.validate.unobtrusive.js" />
+    <Content Include="Content\vendor\jquery\jquery.validate.unobtrusive.method.cnpj.js" />
+    <Content Include="Content\vendor\jquery\jquery.validate.unobtrusive.method.cpf.js" />
+    <Content Include="Content\vendor\jquery\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Content\vendor\jquery\modernizr-2.6.2.js" />
+    <Content Include="Content\vendor\metisMenu\metisMenu.min.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="FigurasMenu\EmpresaBranco.png" />
+    <Content Include="FigurasMenu\Lais Mobile.jpg" />
+    <Content Include="FigurasMenu\Lara Mobile.jpg" />
+    <Content Include="FigurasMenu\UsuarioBranco.png" />
+    <Content Include="FigurasMenu\UsuarioMaster.png" />
+    <Content Include="images\LogoIcone.ico" />
+    <Content Include="Content\resources\data\document.js" />
+    <Content Include="Content\resources\data\styles.css" />
+    <Content Include="Global.asax" />
+    <Content Include="images\LogotipoBrancoMenor.png" />
+    <Content Include="images\RecuperarSenha.png" />
+    <Content Include="images\TelaLogin.png" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\resources\chrome\allow_access.gif" />
+    <Content Include="Content\resources\chrome\axure_logo.gif" />
+    <Content Include="Content\resources\chrome\axure_logo.png" />
+    <Content Include="Content\resources\chrome\chrome.html" />
+    <Content Include="Content\resources\chrome\extensions_menu.gif" />
+    <Content Include="Content\resources\chrome\splitter.gif" />
+    <Content Include="Content\resources\chrome\splitter.png" />
+    <Content Include="Content\resources\css\axure_rp_page.css" />
+    <Content Include="Content\resources\css\default.css" />
+    <Content Include="Content\resources\css\images\images.html" />
+    <Content Include="Content\resources\css\images\newwindow.gif" />
+    <Content Include="Content\resources\css\images\note.gif" />
+    <Content Include="Content\resources\css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\resources\css\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\resources\css\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\resources\css\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\resources\css\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\resources\css\images\ui-bg_glass_75_ffffff_1x400.png" />
+    <Content Include="Content\resources\css\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\resources\css\images\ui-bg_inset-soft_95_fef1ec_1x100.png" />
+    <Content Include="Content\resources\css\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\resources\css\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\resources\css\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\resources\css\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\resources\css\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\resources\css\jquery-ui-themes.css" />
+    <Content Include="Content\resources\css\reset.css" />
+    <Content Include="Content\resources\expand.html" />
+    <Content Include="Content\resources\files\data.js" />
+    <Content Include="Content\resources\files\styles.css" />
+    <Content Include="Content\resources\images\259_close_12rollover1.png" />
+    <Content Include="Content\resources\images\259_close_12rollover2.png" />
+    <Content Include="Content\resources\images\260_collapse_12rollover1.png" />
+    <Content Include="Content\resources\images\260_collapse_12rollover2.png" />
+    <Content Include="Content\resources\images\261_expand_12rollover1.png" />
+    <Content Include="Content\resources\images\261_expand_12rollover2.png" />
+    <Content Include="Content\resources\images\images.html" />
+    <Content Include="Content\resources\images\transparent.gif" />
+    <Content Include="Content\resources\Other.html" />
+    <Content Include="Content\resources\reload.html" />
+    <Content Include="Content\resources\scripts\axure\action.js" />
+    <Content Include="Content\resources\scripts\axure\adaptive.js" />
+    <Content Include="Content\resources\scripts\axure\annotation.js" />
+    <Content Include="Content\resources\scripts\axure\axQuery.js" />
+    <Content Include="Content\resources\scripts\axure\axQuery.std.js" />
+    <Content Include="Content\resources\scripts\axure\doc.js" />
+    <Content Include="Content\resources\scripts\axure\drag.js" />
+    <Content Include="Content\resources\scripts\axure\events.js" />
+    <Content Include="Content\resources\scripts\axure\expr.js" />
+    <Content Include="Content\resources\scripts\axure\flyout.js" />
+    <Content Include="Content\resources\scripts\axure\geometry.js" />
+    <Content Include="Content\resources\scripts\axure\globals.js" />
+    <Content Include="Content\resources\scripts\axure\ie.js" />
+    <Content Include="Content\resources\scripts\axure\init.temp.js" />
+    <Content Include="Content\resources\scripts\axure\legacy.js" />
+    <Content Include="Content\resources\scripts\axure\model.js" />
+    <Content Include="Content\resources\scripts\axure\move.js" />
+    <Content Include="Content\resources\scripts\axure\repeater.js" />
+    <Content Include="Content\resources\scripts\axure\sto.js" />
+    <Content Include="Content\resources\scripts\axure\style.js" />
+    <Content Include="Content\resources\scripts\axure\tree.js" />
+    <Content Include="Content\resources\scripts\axure\utils.temp.js" />
+    <Content Include="Content\resources\scripts\axure\variables.js" />
+    <Content Include="Content\resources\scripts\axure\viewer.js" />
+    <Content Include="Content\resources\scripts\axure\visibility.js" />
+    <Content Include="Content\resources\scripts\axutils.js" />
+    <Content Include="Content\resources\scripts\jquery-1.7.1.min.js" />
+    <Content Include="Content\resources\scripts\jquery-ui-1.8.10.custom.min.js" />
+    <Content Include="Content\resources\scripts\messagecenter.js" />
+    <Content Include="Content\resources\scripts\player\axplayer.js" />
+    <Content Include="Content\resources\scripts\player\splitter.js" />
+    <Content Include="Content\Scripts\bootbox.js" />
+    <Content Include="Content\Scripts\bootbox.min.js" />
+    <Content Include="Content\Scripts\bootstrap.js" />
+    <Content Include="Content\Scripts\bootstrap.min.js" />
+    <Content Include="Content\Scripts\DataTables\autoFill.bootstrap.js" />
+    <Content Include="Content\Scripts\DataTables\autoFill.bootstrap.min.js" />
+    <Content Include="Content\Scripts\DataTables\autoFill.bootstrap4.js" />
+    <Content Include="Content\Scripts\DataTables\autoFill.bootstrap4.min.js" />
+    <Content Include="Content\Scripts\DataTables\autoFill.foundation.js" />
+    <Content Include="Content\Scripts\DataTables\autoFill.foundation.min.js" />
+    <Content Include="Content\Scripts\DataTables\autoFill.jqueryui.js" />
+    <Content Include="Content\Scripts\DataTables\autoFill.jqueryui.min.js" />
+    <Content Include="Content\Scripts\DataTables\autoFill.semanticui.js" />
+    <Content Include="Content\Scripts\DataTables\autoFill.semanticui.min.js" />
+    <Content Include="Content\Scripts\DataTables\buttons.bootstrap.js" />
+    <Content Include="Content\Scripts\DataTables\buttons.bootstrap.min.js" />
+    <Content Include="Content\Scripts\DataTables\buttons.bootstrap4.js" />
+    <Content Include="Content\Scripts\DataTables\buttons.bootstrap4.min.js" />
+    <Content Include="Content\Scripts\DataTables\buttons.colVis.js" />
+    <Content Include="Content\Scripts\DataTables\buttons.colVis.min.js" />
+    <Content Include="Content\Scripts\DataTables\buttons.flash.js" />
+    <Content Include="Content\Scripts\DataTables\buttons.flash.min.js" />
+    <Content Include="Content\Scripts\DataTables\buttons.foundation.js" />
+    <Content Include="Content\Scripts\DataTables\buttons.foundation.min.js" />
+    <Content Include="Content\Scripts\DataTables\buttons.html5.js" />
+    <Content Include="Content\Scripts\DataTables\buttons.html5.min.js" />
+    <Content Include="Content\Scripts\DataTables\buttons.jqueryui.js" />
+    <Content Include="Content\Scripts\DataTables\buttons.jqueryui.min.js" />
+    <Content Include="Content\Scripts\DataTables\buttons.print.js" />
+    <Content Include="Content\Scripts\DataTables\buttons.print.min.js" />
+    <Content Include="Content\Scripts\DataTables\buttons.semanticui.js" />
+    <Content Include="Content\Scripts\DataTables\buttons.semanticui.min.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.autoFill.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.autoFill.min.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.bootstrap.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.bootstrap.min.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.bootstrap4.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.bootstrap4.min.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.buttons.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.buttons.min.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.colReorder.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.colReorder.min.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.fixedColumns.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.fixedColumns.min.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.fixedHeader.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.fixedHeader.min.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.foundation.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.foundation.min.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.jqueryui.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.jqueryui.min.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.keyTable.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.keyTable.min.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.material.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.material.min.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.responsive.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.responsive.min.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.rowGroup.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.rowGroup.min.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.rowReorder.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.rowReorder.min.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.scroller.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.scroller.min.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.select.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.select.min.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.semanticui.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.semanticui.min.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.uikit.js" />
+    <Content Include="Content\Scripts\DataTables\dataTables.uikit.min.js" />
+    <Content Include="Content\Scripts\DataTables\jquery.dataTables.js" />
+    <Content Include="Content\Scripts\DataTables\jquery.dataTables.min.js" />
+    <Content Include="Content\Scripts\DataTables\responsive.bootstrap.js" />
+    <Content Include="Content\Scripts\DataTables\responsive.bootstrap.min.js" />
+    <Content Include="Content\Scripts\DataTables\responsive.bootstrap4.js" />
+    <Content Include="Content\Scripts\DataTables\responsive.bootstrap4.min.js" />
+    <Content Include="Content\Scripts\DataTables\responsive.foundation.js" />
+    <Content Include="Content\Scripts\DataTables\responsive.foundation.min.js" />
+    <Content Include="Content\Scripts\DataTables\responsive.jqueryui.js" />
+    <Content Include="Content\Scripts\DataTables\responsive.jqueryui.min.js" />
+    <Content Include="Content\Scripts\DataTables\responsive.semanticui.js" />
+    <Content Include="Content\Scripts\DataTables\responsive.semanticui.min.js" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\index.js.flow" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\vendor\jquery\jquery-1.10.2.min.map" />
+    <Content Include="Content\vendor\metisMenu\metisMenu.js.map" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\metisMenu.js" />
+    <Content Include="Scripts\metisMenu.min.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\src\index.js" />
+    <Content Include="Scripts\src\methods\defaults.js" />
+    <Content Include="Scripts\src\methods\destroy.js" />
+    <Content Include="Scripts\src\methods\disableEventListeners.js" />
+    <Content Include="Scripts\src\methods\enableEventListeners.js" />
+    <Content Include="Scripts\src\methods\placements.js" />
+    <Content Include="Scripts\src\methods\update.js" />
+    <Content Include="Scripts\src\modifiers\applyStyle.js" />
+    <Content Include="Scripts\src\modifiers\arrow.js" />
+    <Content Include="Scripts\src\modifiers\computeStyle.js" />
+    <Content Include="Scripts\src\modifiers\flip.js" />
+    <Content Include="Scripts\src\modifiers\hide.js" />
+    <Content Include="Scripts\src\modifiers\index.js" />
+    <Content Include="Scripts\src\modifiers\inner.js" />
+    <Content Include="Scripts\src\modifiers\keepTogether.js" />
+    <Content Include="Scripts\src\modifiers\offset.js" />
+    <Content Include="Scripts\src\modifiers\preventOverflow.js" />
+    <Content Include="Scripts\src\modifiers\shift.js" />
+    <Content Include="Scripts\src\utils\clockwise.js" />
+    <Content Include="Scripts\src\utils\computeAutoPlacement.js" />
+    <Content Include="Scripts\src\utils\debounce.js" />
+    <Content Include="Scripts\src\utils\find.js" />
+    <Content Include="Scripts\src\utils\findCommonOffsetParent.js" />
+    <Content Include="Scripts\src\utils\findIndex.js" />
+    <Content Include="Scripts\src\utils\getBordersSize.js" />
+    <Content Include="Scripts\src\utils\getBoundaries.js" />
+    <Content Include="Scripts\src\utils\getBoundingClientRect.js" />
+    <Content Include="Scripts\src\utils\getClientRect.js" />
+    <Content Include="Scripts\src\utils\getFixedPositionOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetRect.js" />
+    <Content Include="Scripts\src\utils\getOffsetRectRelativeToArbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getOppositePlacement.js" />
+    <Content Include="Scripts\src\utils\getOppositeVariation.js" />
+    <Content Include="Scripts\src\utils\getOuterSizes.js" />
+    <Content Include="Scripts\src\utils\getParentNode.js" />
+    <Content Include="Scripts\src\utils\getPopperOffsets.js" />
+    <Content Include="Scripts\src\utils\getReferenceNode.js" />
+    <Content Include="Scripts\src\utils\getReferenceOffsets.js" />
+    <Content Include="Scripts\src\utils\getRoot.js" />
+    <Content Include="Scripts\src\utils\getRoundedOffsets.js" />
+    <Content Include="Scripts\src\utils\getScroll.js" />
+    <Content Include="Scripts\src\utils\getScrollParent.js" />
+    <Content Include="Scripts\src\utils\getStyleComputedProperty.js" />
+    <Content Include="Scripts\src\utils\getSupportedPropertyName.js" />
+    <Content Include="Scripts\src\utils\getViewportOffsetRectRelativeToArtbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getWindow.js" />
+    <Content Include="Scripts\src\utils\getWindowSizes.js" />
+    <Content Include="Scripts\src\utils\includeScroll.js" />
+    <Content Include="Scripts\src\utils\index.js" />
+    <Content Include="Scripts\src\utils\isBrowser.js" />
+    <Content Include="Scripts\src\utils\isFixed.js" />
+    <Content Include="Scripts\src\utils\isFunction.js" />
+    <Content Include="Scripts\src\utils\isIE.js" />
+    <Content Include="Scripts\src\utils\isModifierEnabled.js" />
+    <Content Include="Scripts\src\utils\isModifierRequired.js" />
+    <Content Include="Scripts\src\utils\isNumeric.js" />
+    <Content Include="Scripts\src\utils\isOffsetContainer.js" />
+    <Content Include="Scripts\src\utils\removeEventListeners.js" />
+    <Content Include="Scripts\src\utils\runModifiers.js" />
+    <Content Include="Scripts\src\utils\setAttributes.js" />
+    <Content Include="Scripts\src\utils\setStyles.js" />
+    <Content Include="Scripts\src\utils\setupEventListeners.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CadastroBase\ComarcaController.cs" />
+    <Compile Include="Controllers\CadastroBase\TipoAcaoController.cs" />
+    <Compile Include="Controllers\CadastroBase\TipoAreaDireitoController.cs" />
+    <Compile Include="Controllers\CadastroBase\TipoJusticaController.cs" />
+    <Compile Include="Controllers\CadastroBase\TipoOABController.cs" />
+    <Compile Include="Controllers\Cadastro\AdvogadoController.cs" />
+    <Compile Include="Controllers\Cadastro\EmpresaController.cs" />
+    <Compile Include="Controllers\Cadastro\EscritorioController.cs" />
+    <Compile Include="Controllers\CadastroBase\StatusProcessoController.cs" />
+    <Compile Include="Controllers\Cadastro\ParteContrariaController.cs" />
+    <Compile Include="Controllers\Cadastro\ReclamanteController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MenuPrincipalController.cs" />
+    <Compile Include="Controllers\Processo\ProcessoController.cs" />
+    <Compile Include="Controllers\Usuario\UsuarioEmpresaController.cs" />
+    <Compile Include="Controllers\Usuario\UsuarioPathController.cs" />
+    <Compile Include="Controllers\Usuario\UsuarioPerfilController.cs" />
+    <Compile Include="Controllers\Cadastro\TestemunhaController.cs" />
+    <Compile Include="Controllers\Usuario\UsuarioController.cs" />
+    <Compile Include="CustomAutorization\Admin.cs" />
+    <Compile Include="CustomAutorization\ErrorController.cs" />
+    <Compile Include="CustomAutorization\MensagemActionResultExtensions.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CadastroBase\ComarcaViewModel.cs" />
+    <Compile Include="ViewModels\CadastroBase\TipoAcaoViewModel.cs" />
+    <Compile Include="ViewModels\CadastroBase\TipoAreaDireitoViewModel.cs" />
+    <Compile Include="ViewModels\CadastroBase\TipoJusticaViewModel.cs" />
+    <Compile Include="ViewModels\CadastroBase\TipoOABViewModel.cs" />
+    <Compile Include="ViewModels\Cadastro\AdvogadoViewModel.cs" />
+    <Compile Include="ViewModels\Cadastro\EmpresaViewModel.cs" />
+    <Compile Include="ViewModels\Cadastro\EscritorioViewModel.cs" />
+    <Compile Include="ViewModels\CadastroBase\StatusProcessoViewModel.cs" />
+    <Compile Include="ViewModels\Cadastro\ParteContrariaViewModel.cs" />
+    <Compile Include="ViewModels\Cadastro\ReclamanteViewModel.cs" />
+    <Compile Include="ViewModels\Processo\ProcessoViewModel.cs" />
+    <Compile Include="ViewModels\Usuario\UsuarioEmpresaViewModel.cs" />
+    <Compile Include="ViewModels\Usuario\UsuarioPathViewModel.cs" />
+    <Compile Include="ViewModels\Usuario\UsuarioPerfilDireitoViewModel.cs" />
+    <Compile Include="ViewModels\Usuario\UsuarioPerfilViewModel.cs" />
+    <Compile Include="ViewModels\Cadastro\TestemunhaViewModel.cs" />
+    <Compile Include="ViewModels\Usuario\UsuarioViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Content\Scripts\jquery-1.10.2.min.map" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Content\resources\chrome\axure-chrome-extension.crx" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Testemunha\Index.cshtml" />
+    <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Testemunha\IncluirTestemunha.cshtml" />
+    <Content Include="Views\Testemunha\AbrirAlterarTestemunha.cshtml" />
+    <Content Include="Views\UsuarioPerfil\Index.cshtml" />
+    <Content Include="Views\UsuarioPath\Index.cshtml" />
+    <Content Include="Views\MenuPrincipal\Index.cshtml" />
+    <Content Include="Views\Error\AccessDenied.cshtml" />
+    <Content Include="Views\Error\MensagemCustomizada.cshtml" />
+    <Content Include="Views\Usuario\AbrirAlterarUsuario.cshtml" />
+    <Content Include="Views\Usuario\IncluirUsuario.cshtml" />
+    <Content Include="Views\UsuarioPath\AbrirAlterar.cshtml" />
+    <Content Include="Views\UsuarioPath\IncluirUsuarioPath.cshtml" />
+    <Content Include="Views\UsuarioPerfil\AbrirAlterarUsuarioPerfil.cshtml" />
+    <Content Include="Views\UsuarioPerfil\IncluirUsuarioPerfil.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Views\Escritorio\AbrirAlterarEscritorio.cshtml" />
+    <Content Include="Views\Escritorio\IncluirEscritorio.cshtml" />
+    <Content Include="Views\Escritorio\Index.cshtml" />
+    <Content Include="Views\Empresa\AbrirAlterarEmpresa.cshtml" />
+    <Content Include="Views\Empresa\IncluirEmpresa.cshtml" />
+    <Content Include="Views\Empresa\Index.cshtml" />
+    <Content Include="Views\Advogado\AbrirAlterarAdvogado.cshtml" />
+    <Content Include="Views\Advogado\IncluirAdvogado.cshtml" />
+    <Content Include="Views\Advogado\Index.cshtml" />
+    <Content Include="Views\StatusProcesso\IncluirStatusProcesso.cshtml" />
+    <Content Include="Views\StatusProcesso\Index.cshtml" />
+    <Content Include="Views\StatusProcesso\AbrirAlterarStatusProcesso.cshtml" />
+    <Content Include="Views\TipoAcao\AbrirAlterarTipoAcao.cshtml" />
+    <Content Include="Views\TipoAcao\IncluirTipoAcao.cshtml" />
+    <Content Include="Views\TipoAcao\Index.cshtml" />
+    <Content Include="Views\TipoOAB\AbrirAlterarTipoOAB.cshtml" />
+    <Content Include="Views\TipoOAB\IncluirTipoOAB.cshtml" />
+    <Content Include="Views\TipoOAB\Index.cshtml" />
+    <Content Include="Views\TipoJustica\AbrirAlterarTipoJustica.cshtml" />
+    <Content Include="Views\TipoJustica\IncluirTipoJustica.cshtml" />
+    <Content Include="Views\TipoJustica\Index.cshtml" />
+    <Content Include="Views\TipoAreaDireito\AbrirAlterarTipoAreaDireito.cshtml" />
+    <Content Include="Views\TipoAreaDireito\IncluirTipoAreaDireito.cshtml" />
+    <Content Include="Views\TipoAreaDireito\Index.cshtml" />
+    <Content Include="Views\Comarca\AbrirAlterarComarca.cshtml" />
+    <Content Include="Views\Comarca\IncluirComarca.cshtml" />
+    <Content Include="Views\Comarca\Index.cshtml" />
+    <Content Include="Views\ParteContraria\AbrirAlterarParteContraria.cshtml" />
+    <Content Include="Views\ParteContraria\IncluirParteContraria.cshtml" />
+    <Content Include="Views\ParteContraria\Index.cshtml" />
+    <Content Include="Views\Reclamante\AbrirAlterarReclamante.cshtml" />
+    <Content Include="Views\Reclamante\IncluirReclamante.cshtml" />
+    <Content Include="Views\Reclamante\Index.cshtml" />
+    <Content Include="Views\Home\RecuperarSenha.cshtml" />
+    <Content Include="Views\UsuarioEmpresa\UsuarioEmpresa.cshtml" />
+    <Content Include="Views\Processo\Index.cshtml" />
+    <Content Include="Views\Usuario\UsuarioAlterarSenha.cshtml" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper.js.flow" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Scripts\metisMenu.js.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ItsLaw.Business\ItsLaw.Business.csproj">
+      <Project>{ed97cad1-56f6-4e09-b98d-044678bff730}</Project>
+      <Name>ItsLaw.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ItsLaw.DAO\ItsLaw.DAO.csproj">
+      <Project>{4df5d8b7-913a-4453-b72d-3fd067c3a735}</Project>
+      <Name>ItsLaw.DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ItsLaw.Entidades\ItsLaw.Entidades.csproj">
+      <Project>{d7c25e23-081d-437b-a412-c1ccbe165589}</Project>
+      <Name>ItsLaw.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ItsLaw.Funcoes.Validacao\ItsLaw.Funcoes.Validacao.csproj">
+      <Project>{a019f983-277a-41d4-809e-aa7b3eba14d9}</Project>
+      <Name>ItsLaw.Funcoes.Validacao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ItsLaw.Infra\ItsLaw.Infra.csproj">
+      <Project>{13a2d484-cc2d-4dad-b7dd-5b814773a73a}</Project>
+      <Name>ItsLaw.Infra</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53311</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:62248/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.3.4.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.3.4.0\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

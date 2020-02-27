@@ -1,0 +1,81 @@
+﻿@model List<ItsLaw.Web.ViewModels.AdvogadoViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+
+
+
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <table style="width:100%">
+                                <tr>
+                                    <td>
+                                        <h3><b>Listagem de Advogados</b></h3>
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("Index", "MenuPrincipal")"><div class="btn btn-primary warning">Voltar</div></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table id="ListaAdvogados" class="table table-striped table-bordered table-hover" style="width:100%">
+                                        <thead>
+                                            <tr class="alert-info">
+                                                <td width="040px">ID</td>
+                                                <td width="150px">Nome do Advogado</td>
+                                                <td width="090px">Telefone</td>
+                                                <td width="090px">Celular</td>
+                                                <td width="150px">Email</td>
+                                                <td width="020px">Alterar</td>
+                                                <td width="020px">Excluir</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td width="040px">@item.IdAdvogado</td>
+                                                    <td width="150px">@item.Nome</td>
+                                                    <td width="090px">@item.Telefone</td>
+                                                    <td width="090px">@item.Celular</td>
+                                                    <td width="150px">@item.Email</td>
+                                                    <td width="020px">
+                                                        <a href="/Advogado/AbrirAlterarAdvogado/@item.IdAdvogado" class="glyphicon glyphicon-edit col-md-1" style="cursor:pointer"></a>
+                                                    </td>
+                                                    <td width="020px">
+                                                        <a type="button" class="glyphicon glyphicon-trash col-md-1" style="cursor:pointer" onclick="MensagemConfirma('Confirme ?','Deseja apagar dados do Advogado ?','@Url.Action("InativarAdvogado", "Advogado", new { id = @item.IdAdvogado })')"></a>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>  
+                            </div>
+                        </div>
+                        <a href="/Advogado/IncluirAdvogado">
+                            <div class="panel-footer">
+                                <span class="pull-left btn btn-default">Adicionar Advogado</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
+

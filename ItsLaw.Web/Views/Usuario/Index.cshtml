@@ -1,0 +1,93 @@
+﻿@model List<ItsLaw.Web.ViewModels.UsuarioViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <table style="width:100%">
+                    <tr>
+                        <td>
+                            <h3><b>Listagem de Usuário</b></h3>
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Index" , "MenuPrincipal")"><div class="btn btn-primary warning">Voltar</div></a>
+                            <!--  <a href="@Url.Action("IncluirUsuarioEmail" , "Usuario"      )"><div class="btn btn-primary warning">Email</div></a> -->
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table id="ListaUsuário" class="table table-striped table-bordered table-hover" style="width:100%">
+                            <thead>
+                                <tr class="alert-info">
+                                    <td width="030px">ID</td>
+                                    <td width="050px">Foto</td>
+                                    <td width="090px">Apelido</td>
+                                    <td width="150px">Nome do Usuário</td>
+                                    <td width="150px">Email</td>
+                                    <td width="150px">Empresa Fantasia</td>
+                                    <td width="030px">Ativo</td>
+                                    <td width="030px">Alterar</td>
+                                    <td width="030px">Excluir</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    var check = "";
+                                    if (@item.Ativo == true)
+                                    {
+                                        check = "checked";
+                                    }
+
+                                    <tr>
+                                        <td width="030px">@item.IdUsuario</td>
+                                        <td>
+                                            @if (item.Fotografia == null)
+                                            {
+                                                <img src="~/FigurasMenu/UsuarioBranco.png" alt="Usuario Branco" title="ItsLaw" style="max-width:50px; max-height:50px;" />
+                                            }
+                                            else
+                                            {
+                                                var base64 = Convert.ToBase64String(item.Fotografia);
+                                                var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                                <img src='@imgSrc' style="max-width:50px; max-height:50px;" />
+                                            }
+                                        </td>
+                                        <td width="090px">@item.Apelido</td>
+                                        <td width="150px">@item.Nome</td>
+                                        <td width="150px">@item.Email</td>
+                                        <td width="150px">@item.FantasiaEmpresa</td>
+                                        <td width="030px"><input type="checkbox" name="Ativo" @check value="@item.Ativo" /></td>
+                                        <td width="030px">
+                                            <a href="/Usuario/AbrirAlterarUsuario/@item.IdUsuario" class="glyphicon glyphicon-edit col-md-1" style="cursor:pointer"></a>
+                                        </td>
+                                        <td width="030px">
+                                            <a type="button" class="glyphicon glyphicon-trash col-md-1" style="cursor:pointer" onclick="MensagemConfirma('Confirme ?','Deseja apagar dados da Usuario ?','@Url.Action("Inativar", "Usuario", new { id = @item.IdUsuario })')"></a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <a href="/Usuario/IncluirUsuario">
+                <div class="panel-footer">
+                    <span class="pull-left btn btn-default">Adicionar Usuario</span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>

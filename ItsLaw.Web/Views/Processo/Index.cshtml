@@ -1,0 +1,149 @@
+﻿@model ItsLaw.Web.ViewModels.ProcessoFiltroViewModel
+@{
+    ViewBag.Title = "Processo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+
+
+<script>
+    $(function () { $("#dtinicioprocesso").datepicker(); });
+    $(function () { $("#dtfinalprocesso").datepicker(); });
+
+    function ProcessoFiltroEstado() {
+        var IdTabAuxiliar = $('#IdTabAuxiliar').val();
+
+    }
+</script>
+
+<body>
+    <form action="/Processo/Index" method="post">
+
+        <div data-ng-controller="ProcessoController">
+
+            @Html.HiddenFor(model => model.FiltroIdMaster)
+            @Html.HiddenFor(model => model.ListaProcessos)
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <table style="width:100%">
+                                <tr>
+                                    <td>
+                                        <h3><b>Listagem de Processos</b></h3>
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("Index", "MenuPrincipal")"><div class="btn btn-primary warning">Voltar</div></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="itslaw-item-processo">
+                                    <div class="col-md-12">
+                                        <div class="col-md-3">
+                                            Tipo de Ação:
+                                            @Html.DropDownListFor(model => model.FiltroIdTipoAcao, new SelectList(ViewBag.TabTipoAcao, "IdTipoAcao", "Descricao"), "Escolha Tipo Ação", new { @class = "form-control" })
+                                        </div>
+                                        <div class="col-md-2">
+                                            Tipo de Área Direito:
+                                            @Html.DropDownListFor(model => model.FiltroIdTipoAreaDireito, new SelectList(ViewBag.TabTipoAreaDireito, "IdTipoAreaDireito", "Descricao"), "Área Direito", new { @class = "form-control" })
+                                        </div>
+                                        <div class="col-md-2">
+                                            Tipo de Justiça:
+                                            @Html.DropDownListFor(model => model.FiltroIdTipoJustica, new SelectList(ViewBag.TabTipoJustica, "IdTipoJustica", "Descricao"), "Tipo Justiça", new { @class = "form-control" })
+                                        </div>
+                                        <div class="col-md-5">
+                                            Comarca:
+                                            @Html.DropDownListFor(model => model.FiltroIdComarca, new SelectList(ViewBag.TabComarca, "IdComarca", "Descricao"), "Escolha Comarca", new { @class = "form-control" })
+                                        </div>
+                                        <div class="col-md-3">
+                                            Empresa:
+                                            @Html.DropDownListFor(model => model.FiltroIdEmpresa, new SelectList(ViewBag.TabEmpresa, "IdEmpresa", "Fantasia"), "Escolha Empresa", new { @class = "form-control" })
+                                        </div>
+                                        <div class="col-md-3">
+                                            Escritório:
+                                            @Html.DropDownListFor(model => model.FiltroIdEscritorio, new SelectList(ViewBag.TabEscritorio, "IdEscritorio", "Fantasia"), "Escolha Escritório", new { @class = "form-control" })
+                                        </div>
+                                        <div class="col-md-2">
+                                            Estado:
+                                            @Html.DropDownListFor(model => model.FiltroIdEstado, new SelectList(ViewBag.TabAuxEstado, "IdTabAuxiliar", "Descricao"), "Escolha o Estado (UF)", new { @class = "form-control" })
+                                        </div>
+                                        <div class="col-md-2">
+                                            Status do Processo:
+                                            @Html.DropDownListFor(model => model.FiltroIdStatusProcesso, new SelectList(ViewBag.TabStatusProcesso, "IdStatusProcesso", "Codigo"), "Escolha Status", new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <br><br>
+                                    <div class="row-form tar row-form-no-border">
+                                        <input type="submit" class="pull-left btn btn-success btn-tam-1 warning" name="filtrar" value="Filtrar Processo" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <table id="ListaProcessos" class="table table-striped table-bordered table-hover" style="width:100%">
+                                            <thead>
+                                                <tr class="alert-info">
+                                                    <td width="040px">ID</td>
+                                                    <td width="070px">Dt.Inclusão</td>
+                                                    <td width="030px">Açao</td>
+                                                    <td width="030px">Área</td>
+                                                    <td width="030px">Justiça</td>
+                                                    <td width="020px">UF</td>
+                                                    <td width="030px">Código</td>
+                                                    <td width="150px">Empresa</td>
+                                                    <td width="150px">Escritorio</td>
+                                                    <td width="090px">Status</td>
+                                                    <td width="020px">Alterar</td>
+                                                    <td width="020px">Excluir</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.ListaProcessos)
+                                                {
+                                                    <tr>
+                                                        <td width="040px">@item.IdProcesso</td>
+                                                        <td width="070px">@item.DtUsuarioInclusao</td>
+                                                        <td width="030px">@item.TipoAcaoDescricao</td>
+                                                        <td width="030px">@item.TipoAreaDireitoDescricao</td>
+                                                        <td width="030px">@item.TipoJusticaDescricao</td>
+                                                        <td width="020px">@item.EstadoDescricao</td>
+                                                        <td width="030px">@item.Codigo</td>
+                                                        <td width="150px">@item.EmpresaDescricao</td>
+                                                        <td width="150px">@item.EscritorioDescricao</td>
+                                                        <td width="090px">@item.StatusCodigo</td>
+                                                        <td width="020px">
+                                                            <a href="/Processo/AbrirAlterarProcesso/@item.IdProcesso" class="glyphicon glyphicon-edit col-md-1" style="cursor:pointer"></a>
+                                                        </td>
+                                                        <td width="020px">
+                                                            <a type="button" class="glyphicon glyphicon-trash col-md-1" style="cursor:pointer" onclick="MensagemConfirma('Confirme ?','Deseja apagar dados da Processo ?','@Url.Action("InativarProcesso", "Processo", new { id = @item.IdProcesso })')"></a>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/Processo/IncluirProcesso">
+                            <div class="panel-footer">
+                                <span class="pull-left btn btn-default">Adicionar Processo</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+        </div>
+    </form>
+</body>

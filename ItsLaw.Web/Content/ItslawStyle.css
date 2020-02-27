@@ -1,0 +1,48 @@
+/*!
+ * Its Law STYLE v1.0.0. 
+ * Copyright IT Singular .
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+
+
+
+<!-- EGS Usado
+.itslaw-info-empresas {
+    padding: 2px 2px;
+    font-family: Verdana;
+    font-size: small;
+    color: burlywood;
+    font-size: 10px;
+}
+
+<!-- EGS Usado 
+.itslaw-item-menu{
+ padding: 2px 2px;
+  display:inline-block;
+  font-family: Verdana;
+  font-size:  medium;
+  color: black;
+  font-size: 12px;
+}
+
+<!-- EGS Usado
+.itslaw-faixa-verde {
+    padding: 1px 1px;
+    font-family: Verdana;
+    font-size: medium;
+    color: black;
+    background-color: aquamarine;
+    font-size: 10px;
+}
+
+.itslaw-item-processo {
+    padding: 2px 2px;
+    display: inline-block;
+    font-family: Verdana;
+    font-size: medium;
+    color: black;
+    font-size: 12px;
+}
+

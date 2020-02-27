@@ -1,0 +1,90 @@
+﻿@model ItsLaw.Web.ViewModels.UsuarioViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="@Url.Content("~/Content/Scripts/jquery-1.10.2.js")"                               type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.js")"                             type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.unobtrusive.js")"                 type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.unobtrusive.method.cpfcnpj.js")"  type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.maskedinput.js")"                          type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/ItsLaw-campos-formatados.js")"                    type="text/javascript"></script>
+
+
+
+<form action="/Usuario/UsuarioAlterarSenha" name="UsuarioAlterarSenha" method="post">
+    @Html.AntiForgeryToken()
+
+
+    <div class="row">
+        @Html.HiddenFor(model => model.IdUsuario)
+        @Html.HiddenFor(model => model.IdUsuarioAlteracao)
+        @Html.HiddenFor(model => model.DtUsuarioAlteracao)
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <table style="width:100%">
+                        <tr>
+                            <td>
+                                <h3><b>Alteração de Senha</b></h3>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="panel-body">
+                            <fieldset>
+                                <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <label>Email: &nbsp;     @ViewBag.UsuarioEmailAtual</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <label>Nome: &nbsp;&nbsp;@ViewBag.UsuarioLoginAtual</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div><br>
+                        <div class="panel-body">
+                            <fieldset>
+                                <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <label>Senha Atual</label>
+                                        <input type="password" class="form-control" name="txtSenhaAtual" id="txtSenhaAtual" placeholder="Senha Atual">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <label>Nova Senha</label>
+                                        <input type="password" class="form-control" name="txtSenhaNova" id="txtSenhaNova" placeholder="Senha Nova">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <label>Confirma a Nova Senha</label>
+                                        <input type="password" class="form-control" name="txtSenhaNova2" id="txtSenhaNova2" placeholder="Senha Nova Novamente">
+                                    </div>
+                                </div>
+                            </fieldset>
+                            &nbsp;<label style="color:red">&nbsp;&nbsp;&nbsp;&nbsp;@ViewBag.Msg</label>
+                        </div><br>
+                    </div>
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- ==================================================================== Botoes no Rodape =================================-->
+        <div class="row-form tar row-form-no-border">
+            <a href="@Url.Action("Index"  , "MenuPrincipal" )"><div class="btn btn-success warning">Voltar</div></a>
+            &nbsp;
+            &nbsp;
+            <input type="submit" class="btn btn-success btn-tam-1 warning" name="name" value="Alterar a Senha" />
+            &nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+
+</form>

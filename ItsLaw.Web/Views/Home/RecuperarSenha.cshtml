@@ -1,0 +1,36 @@
+﻿<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<body>
+    <form action="/Home/RecuperarSenha" method="post" align="center">
+        <div class="container" align="center">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-4">
+                    <div class="recovery-panel panel panel-success">
+                        <img src="/images/RecuperarSenha.png" alt="ItsLaw" title="ItsLaw" /><br><br>
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Recuperação de Senha</h3>
+                        </div>
+                        <div class="panel-body">
+                            <fieldset>
+                                <input id="txtRecuperaEmail" name="txtRecuperaEmail" value="" placeholder="email@email.com" class="form-control input-md" required="" type="text">
+                                <span class="help-block">Insira o email cadastrado no sistema</span>
+
+                                <button id="recupera" name="recupera" class="btn btn-success">Recuperar</button>
+                                <a href="@Url.Action("Index", "Home")"><div class="btn btn-danger">Cancelar</div></a>
+
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container body-content">
+                <br><br><br><br><br><br><br><br>
+                <footer class="footer">
+                    <font size="1" color="green"><p>&copy; @DateTime.Now.Year - Recuperar sua Senha </p></font>
+                </footer>
+            </div>
+        </div>
+    </form>
+
+</body>

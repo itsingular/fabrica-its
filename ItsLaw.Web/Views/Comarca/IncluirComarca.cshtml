@@ -1,0 +1,112 @@
+﻿@model ItsLaw.Web.ViewModels.ComarcaViewModel
+
+@{
+    ViewBag.Title = "IncluirComarca";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="@Url.Content("~/Content/Scripts/jquery-1.10.2.js")"                               type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.js")"                             type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.unobtrusive.js")"                 type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.unobtrusive.method.cpfcnpj.js")"  type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.maskedinput.js")"                          type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/ItsLaw-campos-formatados.js")"                    type="text/javascript"></script>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-horizontal block-fluid" data-ng-controller="ComarcaController">
+        <div class="head clearfix">
+            <div class="isw-grid"></div>
+            <h3>Inclusão de Comarca</h3>
+        </div>
+
+        <!-- ==================================================================== Identificacao ====================================-->
+        <div class="panel-body">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Dados da Comarca</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-md-3">
+                            @Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "control-label col-md-0" })
+                            @Html.EditorFor(model => model.Descricao, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-3">
+                            @Html.LabelFor(model => model.Endereco, htmlAttributes: new { @class = "control-label col-md-0" })
+                            @Html.EditorFor(model => model.Endereco, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Endereco, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-3">
+                            @Html.LabelFor(model => model.Bairro, htmlAttributes: new { @class = "control-label col-md-0" })
+                            @Html.EditorFor(model => model.Bairro, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Bairro, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-3">
+                            @Html.LabelFor(model => model.Cidade, htmlAttributes: new { @class = "control-label col-md-0" })
+                            @Html.EditorFor(model => model.Cidade, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Cidade, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-0" })
+                            @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+                            @Html.DropDownListFor(model => model.Estado, new SelectList(
+                                           new[]
+                                           {
+                                                                    new {Value = "AC", Text = "ACRE"},
+                                                                    new {Value = "AL", Text = "ALAGOAS"},
+                                                                    new {Value = "AP", Text = "AMAPÁ"},
+                                                                    new {Value = "AM", Text = "AMAZONAS"},
+                                                                    new {Value = "BA", Text = "BAHIA"},
+                                                                    new {Value = "CE", Text = "CEARÁ"},
+                                                                    new {Value = "DF", Text = "DISTRITO FEDERAL"},
+                                                                    new {Value = "ES", Text = "ESPÍRITO SANTO"},
+                                                                    new {Value = "GO", Text = "GOIÁS"},
+                                                                    new {Value = "MA", Text = "MARANHÃO"},
+                                                                    new {Value = "MT", Text = "MATO GROSSO"},
+                                                                    new {Value = "MS", Text = "MATO GROSSO DO SUL"},
+                                                                    new {Value = "MG", Text = "MINAS GERAIS"},
+                                                                    new {Value = "PA", Text = "PARÁ"},
+                                                                    new {Value = "PB", Text = "PARAÍBA"},
+                                                                    new {Value = "PR", Text = "PARANÁ"},
+                                                                    new {Value = "PE", Text = "PERNAMBUCO"},
+                                                                    new {Value = "PI", Text = "PIAUÍ"},
+                                                                    new {Value = "RJ", Text = "RIO DE JANEIRO"},
+                                                                    new {Value = "RN", Text = "RIO GRANDE DO NORTE"},
+                                                                    new {Value = "RS", Text = "RIO GRANDE DO SUL"},
+                                                                    new {Value = "RO", Text = "RONDÔNIA"},
+                                                                    new {Value = "RR", Text = "RORAIMA"},
+                                                                    new {Value = "SC", Text = "SANTA CATARINA"},
+                                                                    new {Value = "SP", Text = "SÃO PAULO"},
+                                                                    new {Value = "SE", Text = "SERGIPE"},
+                                                                    new {Value = "TO", Text = "TOCANTINS"},
+                                           },
+                                           "Value",
+                                           "Text"
+                                           ), new { @class = "form-control", style = "width: 275px;" })
+                        </div>
+                        <div class="col-md-3">
+                            @Html.LabelFor(model => model.Telefone, htmlAttributes: new { @class = "control-label col-md-0" })
+                            @Html.EditorFor(model => model.Telefone, new { htmlAttributes = new { @class = "form-control ItsLaw-MaskTelefone" } })
+                            @Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!-- ==================================================================== Datas ============================================-->
+            <div class="row-form tar row-form-no-border">
+                <a href="@Url.Action("Index", "Comarca")"><div class="btn btn-primary warning">Voltar</div></a>
+                <input type="submit" value="Adiciona Comarca" class="btn btn-primary warning" />
+            </div>
+        </div>
+    </div>
+}

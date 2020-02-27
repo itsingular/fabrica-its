@@ -1,0 +1,91 @@
+﻿@model List<ItsLaw.Web.ViewModels.UsuarioPerfilDireitoViewModel>
+@{
+    ViewBag.Title = "UsuarioPerfil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script src="@Url.Content("~/Content/Scripts/jquery-1.10.2.js")"                               type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.js")"                             type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.unobtrusive.js")"                 type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.unobtrusive.method.cpfcnpj.js")"  type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.maskedinput.js")"                          type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/ItsLaw-campos-formatados.js")"                    type="text/javascript"></script>
+
+
+<form action="/UsuarioPerfil/SalvarUsuarioPerfil" method="post">
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="form-horizontal block-fluid" data-ng-controller="UsuarioPerfilController">
+        <div class="head clearfix">
+            <div class="isw-grid"></div>
+            <h3>Alteração de Perfil de Usuário</h3>
+        </div>
+        @Html.HiddenFor(model => model.IdMaster)
+        @Html.HiddenFor(model => model.IdUsuarioPerfilDireito)
+        @Html.HiddenFor(model => model.IdUsuarioPerfil)
+        @Html.HiddenFor(model => model.IdUsuarioPath)
+
+        <!-- ==================================================================== Identificacao ====================================-->
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Dados do Perfil de Usuário</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-4">
+                        <label>Derscrição</label>
+                        <input type="text" name="DescricaoPerfil" class="form-control" value="@ViewBag.DescricaoPerfil" />
+                    </div>
+                    <div class="col-md-2">
+                        <a href="@Url.Action("Index", "UsuarioPerfil")"><div class="btn btn-primary warning">Voltar</div></a>
+                    </div>
+                </div>
+                <div class="row-form clearfix">
+                    <div class="row">
+                        <div class="head clearfix">
+                            <h1>Acessos para esse Perfil</h1>
+                        </div>
+
+                        <table id="ListaAcessos" class="table table-striped table-bordered table-hover" style="width:100%">
+                            <thead>
+                                <tr class="alert-info">
+                                    <td class="col-md-4">Funcionalidades</td>
+                                    <td class="col-md-2">Visualizar</td>
+                                    <td class="col-md-2">Editar</td>
+                                    <td class="col-md-2">Incluir</td>
+                                    <td class="col-md-2">Excluir</td>
+                                    <td class="col-md-2">Importar</td>
+                                    <td class="col-md-2">Imprimir</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.DescricaoAcesso</td>
+                                        <td class="col-md-2"><center><input type="checkbox" checked="@item.AcaoVisualizar"></center></td>
+                                        <td class="col-md-2"><center><input type="checkbox" checked="@item.AcaoEditar"></center></td>
+                                        <td class="col-md-2"><center><input type="checkbox" checked="@item.AcaoIncluir"></center></td>
+                                        <td class="col-md-2"><center><input type="checkbox" checked="@item.AcaoExcluir"></center></td>
+                                        <td class="col-md-2"><center><input type="checkbox" checked="@item.AcaoImportar"></center></td>
+                                        <td class="col-md-2"><center><input type="checkbox" checked="@item.AcaoImprimir"></center></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================================================================== Botoes no Rodape =================================-->
+        <div class="row-form tar row-form-no-border">
+            <a href="@Url.Action("Index", "UsuarioPerfil")"><div class="btn btn-success warning">Voltar</div></a>
+            <input type="submit" class="btn btn-success btn-tam-1 warning" name="name" value="Salvar Perfil" />
+        </div>
+    </div>
+
+</form>

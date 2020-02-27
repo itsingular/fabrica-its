@@ -1,0 +1,160 @@
+﻿@model ItsLaw.Web.ViewModels.ReclamanteViewModel
+
+@{
+    ViewBag.Title = "IncluirReclamante";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script src="@Url.Content("~/Content/Scripts/jquery-1.10.2.js")"                               type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.js")"                             type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.unobtrusive.js")"                 type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.unobtrusive.method.cpfcnpj.js")"  type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.maskedinput.js")"                          type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/ItsLaw-campos-formatados.js")"                    type="text/javascript"></script>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-horizontal block-fluid" data-ng-controller="ReclamanteController">
+        <div class="head clearfix">
+            <div class="isw-grid"></div>
+            <h3>Inclusão de Reclamante</h3>
+        </div>
+
+        <!-- ==================================================================== Identificacao ====================================-->
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Dados de Reclamante</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-3">
+                        @Html.LabelFor(model => model.CpfCnpj, htmlAttributes: new { @class = "control-label col-md-0" })
+                        @Html.EditorFor(model => model.CpfCnpj, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CpfCnpj, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-8">
+                        @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-0" })
+                        @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================================================================== Endereco =========================================-->
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Dados do Endereço</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-7">
+                        @Html.LabelFor(model => model.Logradouro, htmlAttributes: new { @class = "control-label col-md-0" })
+                        @Html.EditorFor(model => model.Logradouro, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Logradouro, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.LabelFor(model => model.Numero, htmlAttributes: new { @class = "control-label col-md-0" })
+                        @Html.EditorFor(model => model.Numero, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Numero, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.LabelFor(model => model.Complemento, htmlAttributes: new { @class = "control-label col-md-0" })
+                        @Html.EditorFor(model => model.Complemento, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Complemento, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-3">
+                        @Html.LabelFor(model => model.Bairro, htmlAttributes: new { @class = "control-label col-md-0" })
+                        @Html.EditorFor(model => model.Bairro, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Bairro, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-3">
+                        @Html.LabelFor(model => model.Cidade, htmlAttributes: new { @class = "control-label col-md-0" })
+                        @Html.EditorFor(model => model.Cidade, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Cidade, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.LabelFor(model => model.Cep, htmlAttributes: new { @class = "control-label col-md-0" })
+                        @Html.EditorFor(model => model.Cep, new { htmlAttributes = new { @class = "form-control ItsLaw-MaskCep" } })
+                        @Html.ValidationMessageFor(model => model.Cep, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-3">
+                        @Html.LabelFor(model => model.IDEstado, new { @class = "control-label col-md-0" })
+                        @Html.DropDownListFor(model => model.IDEstado, new SelectList(ViewBag.EstadoDescricao, "IdTabAuxiliar", "Descricao"), "Escolha o Estado (UF)", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IDEstado, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================================================================== Telefone e Dados =================================-->
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Telefones</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-5">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-0" })
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-3">
+                        @Html.LabelFor(model => model.Telefone, htmlAttributes: new { @class = "control-label col-md-0" })
+                        @Html.EditorFor(model => model.Telefone, new { htmlAttributes = new { @class = "form-control ItsLaw-MaskTelefone" } })
+                        @Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-3">
+                        @Html.LabelFor(model => model.Celular, htmlAttributes: new { @class = "control-label col-md-0" })
+                        @Html.EditorFor(model => model.Celular, new { htmlAttributes = new { @class = "form-control ItsLaw-MaskCelular" } })
+                        @Html.ValidationMessageFor(model => model.Celular, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================================================================== Datas ============================================-->
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Informações Extras</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-2">
+                        @Html.LabelFor(model => model.IDSexo, new { @class = "control-label col-md-0" })
+                        @Html.DropDownListFor(model => model.IDSexo, new SelectList(ViewBag.SexoDescricao, "IdTabAuxiliar", "Descricao"), "Escolha o sexo", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IDSexo, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.LabelFor(model => model.DataNascimento, htmlAttributes: new { @class = "control-label col-md-0" })
+                        @Html.EditorFor(model => model.DataNascimento, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DataNascimento, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-3">
+                        @Html.LabelFor(model => model.IDEstadoCivil, new { @class = "control-label col-md-0" })
+                        @Html.DropDownListFor(model => model.IDEstadoCivil, new SelectList(ViewBag.EstCivilDescricao, "IdTabAuxiliar", "Descricao"), "Escolha o Estado Civil", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IDEstadoCivil, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-4">
+                        @Html.LabelFor(model => model.Profissao, htmlAttributes: new { @class = "control-label col-md-0" })
+                        @Html.EditorFor(model => model.Profissao, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Profissao, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================================================================== Datas ============================================-->
+        <div class="row-form tar row-form-no-border">
+            <a href="@Url.Action("Index", "Reclamante")"><div class="btn btn-primary warning">Voltar</div></a>
+            <input type="submit" value="Adiciona Reclamante" class="btn btn-primary warning" />
+        </div>
+    </div>
+}

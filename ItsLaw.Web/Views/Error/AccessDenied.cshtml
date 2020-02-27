@@ -1,0 +1,61 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Acesso não permitido</title>
+    <style type="text/css">
+        #site {
+            width: 100%;
+            height: 100%;
+            alignment-adjust: middle;
+        }
+
+        .titulo {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            font-size: 36px;
+            color: #65bf71;
+        }
+
+        .txt {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            color: #000;
+        }
+
+        .txt_site {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            color: #F00;
+        }
+
+        #box {
+            height: 500px;
+            width: 800px;
+            top: 50%;
+            left: 50%;
+            margin-top: -250px;
+            margin-left: -400px;
+            position: absolute;
+            border: 0px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <h1 class="titulo">Sem permissão para acessar esta página</h1>
+        <br><br>
+        @HttpContext.Current.Request.FilePath
+        <br><br>
+        <p class="txt">O acesso a página está bloqueado pois seu perfil não tem permissão</p>
+        <p class="txt">Verifique seu acesso e permissões junto a administração</p>
+        <br /><br /><br /><br /><br /><br /><br />
+        <a href="javascript:window.history.go(-1)"><div class="btn btn-primary warning">Voltar</div></a>
+    </div>
+</body>
+</html>
+<!--%s%S-->

@@ -1,0 +1,49 @@
+﻿@model ItsLaw.Web.ViewModels.TipoAcaoViewModel
+
+@{
+    ViewBag.Title = "IncluirTipoAcao";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="@Url.Content("~/Content/Scripts/jquery-1.10.2.js")"                               type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.js")"                             type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.unobtrusive.js")"                 type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.unobtrusive.method.cpfcnpj.js")"  type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.maskedinput.js")"                          type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/ItsLaw-campos-formatados.js")"                    type="text/javascript"></script>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="form-horizontal block-fluid" data-ng-controller="TipoAcaoController">
+        <div class="head clearfix">
+            <div class="isw-grid"></div>
+            <h3>Inclusão de Tipo de Ação</h3>
+        </div>
+
+        <!-- ==================================================================== Identificacao ====================================-->
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Dados da Tipo de Ação</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-5">
+                        @Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "control-label col-md-0" })
+                        @Html.EditorFor(model => model.Descricao, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================================================================== Datas ============================================-->
+        <div class="row-form tar row-form-no-border">
+            <a href="@Url.Action("Index", "TipoAcao")"><div class="btn btn-primary warning">Voltar</div></a>
+            <input type="submit" value="Adiciona Tipo de Ação" class="btn btn-primary warning" />
+        </div>
+    </div>
+}

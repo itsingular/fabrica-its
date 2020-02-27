@@ -1,0 +1,151 @@
+﻿@model ItsLaw.Web.ViewModels.UsuarioViewModel
+
+@{
+    ViewBag.Title = "Usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="@Url.Content("~/Content/Scripts/jquery-1.10.2.js")"                               type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.js")"                             type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.unobtrusive.js")"                 type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.unobtrusive.method.cpfcnpj.js")"  type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.maskedinput.js")"                          type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/ItsLaw-campos-formatados.js")"                    type="text/javascript"></script>
+
+
+
+@Html.AntiForgeryToken()
+@using (Html.BeginForm("SalvarUsuario", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-horizontal block-fluid" data-ng-controller="UsuarioController">
+        <div class="head clearfix">
+            <div class="isw-grid"></div>
+            <h3>Alteração de Usuários</h3>
+        </div>
+
+        @Html.HiddenFor(model => model.IdUsuario)
+        @Html.HiddenFor(model => model.IdMaster)
+        @Html.HiddenFor(model => model.SenhaCripto)
+        @Html.HiddenFor(model => model.Fotografia)
+        @Html.HiddenFor(model => model.AtivoEmail)
+        @Html.HiddenFor(model => model.CodigoAtivacao)
+        @Html.HiddenFor(model => model.IdUsuarioInclusao)
+        @Html.HiddenFor(model => model.DtUsuarioInclusao)
+        @Html.HiddenFor(model => model.IdUsuarioAlteracao)
+        @Html.HiddenFor(model => model.DtSenhaAlteracao)
+        @Html.HiddenFor(model => model.DtUsuarioAlteracao)
+
+        <!-- ==================================================================== Identificacao ====================================-->
+        <div class="panel-body">
+            <div class="col-md-12">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Dados do Usuário</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-0" })
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-0" })
+                            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-3">
+                            @Html.LabelFor(model => model.Apelido, htmlAttributes: new { @class = "control-label col-md-0" })
+                            @Html.EditorFor(model => model.Apelido, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Apelido, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.IdEmpresa, new { @class = "control-label col-md-0" })
+                            @Html.DropDownListFor(model => model.IdEmpresa, new SelectList(ViewBag.TabEmpresa, "IdEmpresa", "Nome"), "Escolha a Empresa do Usuario", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.IdEmpresa, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.IdUsuarioPerfil, new { @class = "control-label col-md-0" })
+                            @Html.DropDownListFor(model => model.IdUsuarioPerfil, new SelectList(ViewBag.TabPerfil, "IdUsuarioPerfil", "Descricao"), "Escolha o Perfil do Usuario", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.IdUsuarioPerfil, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.LabelFor(model => model.Ativo, htmlAttributes: new { @class = "control-label col-md-0" })
+                            @Html.DropDownListFor(model => model.Ativo, new SelectList(
+                                new[]
+                                {
+                                                    new {Value = false, Text = "NÃO"},
+                                                    new {Value = true , Text = "SIM"},
+                                },
+                                "Value",
+                                "Text"
+                                ), new { @class = "form-control", style = "width: 150px;" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================================================================== Foto do Usuario Mobile ===========================-->
+            <div class="col-md-12">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Foto Usuario</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-md-4">
+                            @if (Model.Fotografia == null)
+                            {
+                                <img src="~/FigurasMenu/UsuarioBranco.png" alt="Usuario Branco" title="ItsLaw" style="max-width:150px; max-height:150px;" />
+                            }
+                            else
+                            {
+                                var base64 = Convert.ToBase64String(Model.Fotografia);
+                                var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                <img src='@imgSrc' style="max-width:150px; max-height:150px;" />
+                            }
+                        </div>
+                        <div class="col-md-8">
+                            @Html.LabelFor(model => model.ImageUpload, new { @class = "control-label col-md-0" })
+                            @Html.TextBoxFor(model => model.ImageUpload, new { type = "file", @class = "form-control", style = "width: 350px;" })
+                            @Html.ValidationMessageFor(model => model.ImageUpload, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ==================================================================== Dados de Auditoria ===============================-->
+            <div class="col-md-12">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Dados da Auditoria</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-md-3">
+                            @Html.LabelFor(model => model.UsuarioInclusaoNome, htmlAttributes: new { @class = "control-label col-md-0" })
+                            @Html.EditorFor(model => model.UsuarioInclusaoNome, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        </div>
+                        <div class="col-md-3">
+                            @Html.LabelFor(model => model.DtUsuarioInclusao, htmlAttributes: new { @class = "control-label col-md-0" })
+                            @Html.EditorFor(model => model.DtUsuarioInclusao, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        </div>
+                        <div class="col-md-3">
+                            @Html.LabelFor(model => model.UsuarioAlteracaoNome, htmlAttributes: new { @class = "control-label col-md-0" })
+                            @Html.EditorFor(model => model.UsuarioAlteracaoNome, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        </div>
+                        <div class="col-md-3">
+                            @Html.LabelFor(model => model.DtUsuarioAlteracao, htmlAttributes: new { @class = "control-label col-md-0" })
+                            @Html.EditorFor(model => model.DtUsuarioAlteracao, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ==================================================================== Botoes no Rodape =================================-->
+            <div class="row-form tar row-form-no-border">
+                <a href="@Url.Action("Index", "Usuario")"><div class="btn btn-success warning">Voltar</div></a>
+                <input type="submit" class="btn btn-success btn-tam-1 warning" name="name" value="Salvar Usuário" />
+            </div>
+        </div>
+    </div>   
+}

@@ -1,0 +1,115 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Its Law - Login</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link href="~/Content/resources/css/jquery-ui-themes.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/resources/css/axure_rp_page.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/resources/data/styles.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/resources/files/styles.css" type="text/css" rel="stylesheet" />
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" type="text/css" rel="stylesheet" />
+    <script src="~/Content/resources/scripts/jquery-1.7.1.min.js"></script>
+    <script src="~/Content/resources/scripts/jquery-ui-1.8.10.custom.min.js"></script>
+    <script src="~/Content/resources/scripts/axure/axQuery.js"></script>
+    <script src="~/Content/resources/scripts/axure/globals.js"></script>
+    <script src="~/Content/resources/scripts/axutils.js"></script>
+    <script src="~/Content/resources/scripts/axure/annotation.js"></script>
+    <script src="~/Content/resources/scripts/axure/axQuery.std.js"></script>
+    <script src="~/Content/resources/scripts/axure/doc.js"></script>
+    <script src="~/Content/resources/data/document.js"></script>
+    <script src="~/Content/resources/scripts/messagecenter.js"></script>
+    <script src="~/Content/resources/scripts/axure/events.js"></script>
+    <script src="~/Content/resources/scripts/axure/action.js"></script>
+    <script src="~/Content/resources/scripts/axure/expr.js"></script>
+    <script src="~/Content/resources/scripts/axure/geometry.js"></script>
+    <script src="~/Content/resources/scripts/axure/flyout.js"></script>
+    <script src="~/Content/resources/scripts/axure/ie.js"></script>
+    <script src="~/Content/resources/scripts/axure/model.js"></script>
+    <script src="~/Content/resources/scripts/axure/repeater.js"></script>
+    <script src="~/Content/resources/scripts/axure/sto.js"></script>
+    <script src="~/Content/resources/scripts/axure/utils.temp.js"></script>
+    <script src="~/Content/resources/scripts/axure/variables.js"></script>
+    <script src="~/Content/resources/scripts/axure/drag.js"></script>
+    <script src="~/Content/resources/scripts/axure/move.js"></script>
+    <script src="~/Content/resources/scripts/axure/visibility.js"></script>
+    <script src="~/Content/resources/scripts/axure/style.js"></script>
+    <script src="~/Content/resources/scripts/axure/adaptive.js"></script>
+    <script src="~/Content/resources/scripts/axure/tree.js"></script>
+    <script src="~/Content/resources/scripts/axure/init.temp.js"></script>
+    <script src="~/Content/resources/files/data.js"></script>
+    <script src="~/Content/resources/scripts/axure/legacy.js"></script>
+    <script src="~/Content/resources/scripts/axure/viewer.js"></script>
+    <script type="text/javascript">
+        $axure.utils.getTransparentGifPath = function () { return 'Content/resources/images/transparent.gif'; };
+        $axure.utils.getOtherPath          = function () { return 'Content/resources/Other.html'; };
+        $axure.utils.getReloadPath         = function () { return 'Content/resources/reload.html'; };
+
+    </script>
+</head>
+<body bgcolor="black">
+    <font color="green" size="2">@Html.ActionLink("Esqueci a Senha", "RecuperarSenha", "Home")</font><br>
+        <form action="/Home/Index" method="post" autocomplete="off">
+            <div id="base" class="">
+
+                <!-- Unnamed (Image) -->
+                <div id="u0" class="ax_image">
+                    <img id="u0_img" class="img " src="~/images/TelaLogin.png" />
+                    <!-- Unnamed () -->
+                    <div id="u1" class="text">
+                        <p><span></span></p>
+                    </div>
+                </div>
+
+                <!-- Unnamed (Shape) -->
+                <div id="u2" class="ax_paragraph">
+                    <img id="u2_img" class="img " src="~/Content/resources/images/transparent.gif" />
+                    <!-- Unnamed () -->
+                    <div id="u3" class="text">
+                        <p><span>Email:</span></p>
+                    </div>
+                </div>
+                <!-- Unnamed (Shape) -->
+                <div id="u5" class="ax_paragraph">
+                    <img id="u5_img" class="img " src="~/Content/resources/images/transparent.gif" />
+                    <!-- Unnamed () -->
+                    <div id="u6" class="text">
+                        <p><span>Senha:</span></p>
+                    </div>
+                </div>
+
+                <!-- Unnamed (Text Field) -->
+                <div id="u4" class="ax_text_field">
+                    <input id="u4_input" type="text" name="pEmail" value="esilva@itsingular.com.br" />
+                </div>
+
+                <!-- Unnamed (Text Field) -->
+                <div id="u7" class="ax_text_field">
+                    <input id="u7_input" type="password" name="pSenha" value="12345" />
+                </div>
+
+                <!-- Unnamed (Shape) -->
+                <div id="u8" class="ax_paragraph">
+                    <img id="u8_img" class="img " src="~/Content/resources/images/transparent.gif" />
+                    <!-- Unnamed () -->
+                    <div id="u9" class="text" name="esquecisenha">
+                        <font color="green" size="1"><a>@Html.ActionLink("Esqueci a Senha", "RecuperarSenha", "Home")</a></font><br>
+                    </div>
+                </div>
+
+                <!-- Unnamed (HTML Button) -->
+                <div id="u10" class="ax_html_button">
+                    <input id="u10_input" type="submit" value="Acessar" with="250px" />
+                </div>
+                <br/><br/>
+                <label id="u10ViewBag" style="color:white"><b>@ViewBag.Msg</b></label>
+            </div>
+        </form>
+</body>
+</html>
+

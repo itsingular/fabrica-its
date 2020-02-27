@@ -1,0 +1,112 @@
+﻿@model ItsLaw.Web.ViewModels.StatusProcessoViewModel
+
+@{
+    ViewBag.Title = "StatusProcesso";
+    ViewBag.IDStatusProcesso = @Html.EditorFor(model => model.IdStatusProcesso);
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script src="@Url.Content("~/Content/Scripts/jquery-1.10.2.js")"                               type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.js")"                             type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.unobtrusive.js")"                 type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.unobtrusive.method.cpfcnpj.js")"  type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.maskedinput.js")"                          type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/ItsLaw-campos-formatados.js")"                    type="text/javascript"></script>
+
+
+
+<form action="/StatusProcesso/SalvarStatusProcesso" method="post">
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="form-horizontal block-fluid" data-ng-controller="StatusProcessoController">
+        <div class="head clearfix">
+            <div class="isw-grid"></div>
+            <h3>Alteração do Status do Processo</h3>
+        </div>
+        @Html.HiddenFor(model => model.IdMaster)
+        @Html.HiddenFor(model => model.IdStatusProcesso)
+        @Html.HiddenFor(model => model.IdUsuarioInclusao)
+        @Html.HiddenFor(model => model.DtUsuarioInclusao)
+        @Html.HiddenFor(model => model.IdUsuarioAlteracao)
+        @Html.HiddenFor(model => model.DtUsuarioAlteracao)
+
+
+        <!-- ==================================================================== Identificacao ====================================-->
+        <div class="col-md-12">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Status do Processo</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-md-3">
+                        @Html.LabelFor(model => model.Codigo, htmlAttributes: new { @class = "control-label col-md-0" })
+                        @Html.EditorFor(model => model.Codigo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Codigo, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-md-5">
+                        @Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "control-label col-md-0" })
+                        @Html.EditorFor(model => model.Descricao, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-md-3">
+                        @Html.LabelFor(model => model.CorGrid, htmlAttributes: new { @class = "control-label col-md-0" })
+                        @Html.EditorFor(model => model.CorGrid, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.CorGrid, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.LabelFor(model => model.Ativo, htmlAttributes: new { @class = "control-label col-md-0" })
+                        @Html.DropDownListFor(model => model.Ativo, new SelectList(
+                        new[]
+                        {
+                            new {Value = false, Text = "NÃO"},
+                            new {Value = true , Text = "SIM"},
+                        },
+                        "Value",
+                        "Text"
+                        ), new { @class = "form-control", style = "width: 150px;" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==================================================================== Dados de Auditoria ===============================-->
+    <div class="col-md-12">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Dados da Auditoria</h3>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.UsuarioInclusaoNome, htmlAttributes: new { @class = "control-label col-md-0" })
+                    @Html.EditorFor(model => model.UsuarioInclusaoNome, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.DtUsuarioInclusao, htmlAttributes: new { @class = "control-label col-md-0" })
+                    @Html.EditorFor(model => model.DtUsuarioInclusao, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.UsuarioAlteracaoNome, htmlAttributes: new { @class = "control-label col-md-0" })
+                    @Html.EditorFor(model => model.UsuarioAlteracaoNome, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.DtUsuarioAlteracao, htmlAttributes: new { @class = "control-label col-md-0" })
+                    @Html.EditorFor(model => model.DtUsuarioAlteracao, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ==================================================================== Dados Manutencao =================================-->
+    <!-- ==================================================================== Datas ============================================-->
+    <!-- ==================================================================== Botoes no Rodape =================================-->
+    <div class="row-form tar row-form-no-border">
+        <a href="@Url.Action("Index", "StatusProcesso")"><div class="btn btn-success warning">Voltar</div></a>
+        <input type="submit" class="btn btn-success btn-tam-1 warning" name="name" value="Salvar Tipo Ação" />
+    </div>
+</form>

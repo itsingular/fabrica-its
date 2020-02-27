@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Its Law</title>
+    <!-- Static PAN CSS  31.01.2018 -->
+    <link href="~/Content/ItslawStyle.css" rel="stylesheet" />
+    <link href="~/Content/Static/stylesheet.css" rel="stylesheet" />
+    <link href="~/Content/Static/stylesheets.css" rel="stylesheet" />
+    <link href="~/Content/Static/icons.css" rel="stylesheet" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="~/Content/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    <!-- <link href="~/Content/vendor/morrisjs/morris.css" rel="stylesheet">-->
+    <!-- Custom Fonts -->
+    <!-- <link href="~/Content/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Lato:300,400'>
+
+</head>
+
+
+
+
+<body>
+    <!-- jQuery -->
+    <script src="~/Content/vendor/jquery/jquery-1.10.2.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Content/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/Content/vendor/metisMenu/metisMenu.min.js"></script>
+    <!-- Morris Charts JavaScript -->
+    <script src="~/Content/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    <script src="~/Content/Scripts/DataTables/dataTables.bootstrap.min.js"></script>
+
+
+
+    <!--BootBox-->
+    <script src="~/Content/Scripts/bootbox.min.js"></script>
+
+
+
+    <!--  -------------------------------------------------------------- MENU PRINCIPAL --------------------------------------------------------------------------------->
+    <!--   ========================================================================================================================================================== -->
+    <!--   ========================================================================================================================================================== -->
+    <!-- Navigation -->
+    <nav role="navigation">
+        <div class="navbar-header">
+            <!-- Código da Tabela -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td><a href="~/MenuPrincipal"><img src="/images/LogotipoBrancoMenor.png" alt="ItsLaw" title="ItsLaw" /></a></td>
+                    <td width=50> </td>
+                    <td>
+                        <ul class="itslaw-info-empresas">Bem vindo                : @ViewBag.UsuarioNome   </ul>
+                        <ul class="itslaw-info-empresas">Empresa&nbsp;&nbsp;&nbsp;: @ViewBag.UsuarioEmpresa</ul>
+                    </td>
+                    <td width=10> </td>
+                    <td width=10> </td>
+                    <td width=10> </td>
+                    <td width=10> </td>
+                </tr>
+            </table>
+        </div>
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav" style="flex-direction:row;">
+                <li class="dropdown">
+                    <a class="itslaw-item-menu" data-toggle="dropdown" href="#">Cadastros<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Advogados", "Index", "Advogado")</li>
+                        <li>@Html.ActionLink("Escritórios", "Index", "Escritorio")</li>
+                        <li>@Html.ActionLink("Empresas", "Index", "Empresa")</li>
+                        <li class="active" bgcolor=#65bf71><a href="#"></a></li>
+                        <li>@Html.ActionLink("Reclamante (Preposto)", "Index", "Reclamante")</li>
+                        <li>@Html.ActionLink("Parte Contrária", "Index", "ParteContraria")</li>
+                        <li>@Html.ActionLink("Testemunhas", "Index", "Testemunha")</li>
+                        <li class="active" bgcolor=#65bf71><a href="#"></a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="itslaw-item-menu" data-toggle="dropdown" href="#">Tabelas<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Comarca", "Index", "Comarca")</li>
+                        <li>@Html.ActionLink("Tipo de Ação Judicial", "Index", "TipoAcao")</li>
+                        <li>@Html.ActionLink("Tipo de Área Direito", "Index", "TipoAreaDireito")</li>
+                        <li>@Html.ActionLink("Tipo de Justiça", "Index", "TipoJustica")</li>
+                        <li>@Html.ActionLink("Tipo de Inscrição OAB", "Index", "TipoOAB")</li>
+                        <li>@Html.ActionLink("Status do Processo", "Index", "StatusProcesso")</li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="itslaw-item-menu" data-toggle="dropdown" href="#">Contencioso<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Processos", "Index", "Processo")</li>
+                        <li><a href="#">Contencioso 2</a></li>
+                        <li><a href="#">Contencioso 3</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="itslaw-item-menu" data-toggle="dropdown" href="#">Relatorios<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Relatorio 1</a></li>
+                        <li><a href="#">Relatorio 2</a></li>
+                        <li><a href="#">Relatorio 3</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="itslaw-item-menu" data-toggle="dropdown" href="#">Ferramentas<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Mudar de Empresa", "UsuarioEmpresa", "UsuarioEmpresa")</li>
+                        <li>@Html.ActionLink("Alteração de Senha do Usuário", "UsuarioAlterarSenha", "Usuario")</li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="itslaw-item-menu" data-toggle="dropdown" href="#">Configuração<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Cadastro de Usuário", "Index", "Usuario")</li>
+                        <li>@Html.ActionLink("Cadastro de Perfil de Usuário", "Index", "UsuarioPerfil")</li>
+                        <li class="active" bgcolor=#65bf71><a href="#"></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <table width="100%" bgcolor=GREEN border="0" cellpadding="0" cellspacing="0">
+            <td width=150 bgcolor=#65bf71></td>
+            <td width=10 color=white bgcolor=#65bf71 class="itslaw-faixa-verde"><b>@Html.ActionLink("Logout", "Index", "Home")</b></td>
+        </table>
+    </nav>
+    @RenderBody()
+
+
+    <!--   ========================================================================================================================================================== -->
+    <!--   ========================================================================================================================================================== -->
+
+
+    <div class="container body-content">
+        @RenderSection("SCRIPTS", false)
+        @{Html.RenderPartial("~/Views/Error/MensagemCustomizada.cshtml");}
+        <hr />
+        <footer>
+            <center>
+                <font size="1" color="green"><p>&copy; @DateTime.Now.Year - Copyright <a href="http://www.itsingular.com.br/">IT Singular</a> - ® Todos os Direitos Reservados - 1.1231.0002</p></font>
+            </center>
+        </footer>
+    </div>
+</body>
+</html>

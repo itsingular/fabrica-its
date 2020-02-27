@@ -1,0 +1,93 @@
+﻿@model List<ItsLaw.Web.ViewModels.EmpresaViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <table style="width:100%">
+                    <tr>
+                        <td>
+                            <h3><b>Listagem de Empresas</b></h3>
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Index", "MenuPrincipal")"><div class="btn btn-primary warning">Voltar</div></a>
+
+                        </td>
+                    </tr>                    
+                </table>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table id="ListaEmpresas" class="table table-striped table-bordered table-hover" style="width:100%">
+                            <thead>
+                                <tr class="alert-info">
+                                    <td width="040px">ID</td>
+                                    <td width="050px">Logotipo</td>
+                                    <td width="090px">Fantasia</td>
+                                    <td width="150px">Nome Completo da Empresa</td>
+                                    <td width="090px">Telefone</td>
+                                    <td width="090px">Celular</td>
+                                    <td width="030px">Ativo</td>
+                                    <td width="020px">Alterar</td>
+                                    <td width="020px">Excluir</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    var check = "";
+                                    if (@item.Ativo == true)
+                                    {
+                                        check = "checked";
+                                    }
+
+                                    <tr>
+                                        <td width="040px">@item.IdEmpresa</td>
+                                        <td>
+                                            @if (item.Logotipo == null)
+                                            {
+                                                <img src="~/FigurasMenu/EmpresaBranco.png" alt="Empresa Branco" title="ItsLaw" style="max-width:50px; max-height:50px;" />
+                                            }
+                                            else
+                                            {
+                                                var base64 = Convert.ToBase64String(item.Logotipo);
+                                                var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                                <img src='@imgSrc' style="max-width:50px; max-height:50px;" />
+                                            }
+                                        </td>
+                                        <td width="090px">@item.Fantasia</td>
+                                        <td width="150px">@item.Nome</td>
+                                        <td width="090px">@item.Telefone</td>
+                                        <td width="090px">@item.Celular</td>
+                                        <td width="030px"><input type="checkbox" name="Ativo" @check value="@item.Ativo" /></td>
+                                        <td width="020px">
+                                            <a href="/Empresa/AbrirAlterarEmpresa/@item.IdEmpresa" class="glyphicon glyphicon-edit col-md-1" style="cursor:pointer"></a>
+                                        </td>
+                                        <td width="020px">
+                                            <a type="button" class="glyphicon glyphicon-trash col-md-1" style="cursor:pointer" onclick="MensagemConfirma('Confirme ?','Deseja apagar dados da Empresa ?','@Url.Action("InativarEmpresa", "Empresa", new { id = @item.IdEmpresa })')"></a>
+                                        </td>
+                                    </tr>        
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <a href="/Empresa/IncluirEmpresa">
+                <div class="panel-footer">
+                    <span class="pull-left btn btn-default">Adicionar Empresa</span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>

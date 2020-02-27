@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ED97CAD1-56F6-4E09-B98D-044678BFF730}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ItsLaw.Business</RootNamespace>
+    <AssemblyName>ItsLaw.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdvogadoService.cs" />
+    <Compile Include="ComarcaService.cs" />
+    <Compile Include="EmpresaService.cs" />
+    <Compile Include="EscritorioService.cs" />
+    <Compile Include="Interfaces\IAdvogado.cs" />
+    <Compile Include="Interfaces\IComarca.cs" />
+    <Compile Include="Interfaces\IEmpresa.cs" />
+    <Compile Include="Interfaces\IEscritorio.cs" />
+    <Compile Include="Interfaces\IParteContraria.cs" />
+    <Compile Include="Interfaces\IProcesso.cs" />
+    <Compile Include="Interfaces\IReclamante.cs" />
+    <Compile Include="Interfaces\IStatusProcesso.cs" />
+    <Compile Include="Interfaces\ITabAuxiliar.cs" />
+    <Compile Include="Interfaces\ITipoAcao.cs" />
+    <Compile Include="Interfaces\ITipoAreaDireito.cs" />
+    <Compile Include="Interfaces\ITipoJustica.cs" />
+    <Compile Include="Interfaces\ITipoOAB.cs" />
+    <Compile Include="ParteContrariaService.cs" />
+    <Compile Include="ProcessoService.cs" />
+    <Compile Include="ReclamanteService.cs" />
+    <Compile Include="StatusProcessoService.cs" />
+    <Compile Include="TabAuxiliarService.cs" />
+    <Compile Include="TipoAcaoService.cs" />
+    <Compile Include="TipoAreaDireitoService.cs" />
+    <Compile Include="TipoJusticaService.cs" />
+    <Compile Include="TipoOABService.cs" />
+    <Compile Include="Interfaces\IUsuarioPath.cs" />
+    <Compile Include="Interfaces\IUsuarioPerfil.cs" />
+    <Compile Include="Interfaces\ITestemunha.cs" />
+    <Compile Include="Interfaces\IUsuario.cs" />
+    <Compile Include="UsuarioPathService.cs" />
+    <Compile Include="UsuarioPerfilService.cs" />
+    <Compile Include="TestemunhaService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsuarioService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ItsLaw.DAO\ItsLaw.DAO.csproj">
+      <Project>{4DF5D8B7-913A-4453-B72D-3FD067C3A735}</Project>
+      <Name>ItsLaw.DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ItsLaw.Entidades\ItsLaw.Entidades.csproj">
+      <Project>{D7C25E23-081D-437B-A412-C1CCBE165589}</Project>
+      <Name>ItsLaw.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ItsLaw.Infra\ItsLaw.Infra.csproj">
+      <Project>{13A2D484-CC2D-4DAD-B7DD-5B814773A73A}</Project>
+      <Name>ItsLaw.Infra</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

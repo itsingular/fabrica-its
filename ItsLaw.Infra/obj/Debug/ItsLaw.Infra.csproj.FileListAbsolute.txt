@@ -1,0 +1,15 @@
+C:\Desenvolvimento\master\ItsLaw.Infra\bin\Debug\ItsLaw.Infra.dll.config
+C:\Desenvolvimento\master\ItsLaw.Infra\bin\Debug\ItsLaw.Infra.dll
+C:\Desenvolvimento\master\ItsLaw.Infra\bin\Debug\ItsLaw.Infra.pdb
+C:\Desenvolvimento\master\ItsLaw.Infra\bin\Debug\EntityFramework.dll
+C:\Desenvolvimento\master\ItsLaw.Infra\bin\Debug\EntityFramework.SqlServer.dll
+C:\Desenvolvimento\master\ItsLaw.Infra\bin\Debug\ItsLaw.Entidades.dll
+C:\Desenvolvimento\master\ItsLaw.Infra\bin\Debug\Newtonsoft.Json.dll
+C:\Desenvolvimento\master\ItsLaw.Infra\bin\Debug\ItsLaw.Entidades.pdb
+C:\Desenvolvimento\master\ItsLaw.Infra\bin\Debug\ItsLaw.Entidades.dll.config
+C:\Desenvolvimento\master\ItsLaw.Infra\bin\Debug\EntityFramework.xml
+C:\Desenvolvimento\master\ItsLaw.Infra\bin\Debug\EntityFramework.SqlServer.xml
+C:\Desenvolvimento\master\ItsLaw.Infra\obj\Debug\ItsLaw.Infra.csprojAssemblyReference.cache
+C:\Desenvolvimento\master\ItsLaw.Infra\obj\Debug\ItsLaw.Infra.csproj.CopyComplete
+C:\Desenvolvimento\master\ItsLaw.Infra\obj\Debug\ItsLaw.Infra.dll
+C:\Desenvolvimento\master\ItsLaw.Infra\obj\Debug\ItsLaw.Infra.pdb

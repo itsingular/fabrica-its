@@ -1,0 +1,78 @@
+﻿@model List<ItsLaw.Web.ViewModels.UsuarioPerfilViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <table style="width:100%">
+                    <tr>
+                        <td>
+                            <h3><b>Listagem de Perfil de Usuário</b></h3>
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Index", "MenuPrincipal")"><div class="btn btn-primary warning">Voltar</div></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table id="ListaUsuarioPerfil" class="table table-striped table-bordered table-hover" style="width:100%">
+                            <thead>
+                                <tr class="alert-info">
+                                    <td width="040px">ID</td>
+                                    <td width="200px">Descrição do Perfil</td>
+                                    <td width="070px">Usuário Inclusão</td>
+                                    <td width="070px">Dt.Inclusão</td>
+                                    <td width="070px">Usuário Manutenção</td>
+                                    <td width="070px">Dt.Manutenção</td>
+                                    <td width="020px">Alterar</td>
+                                    <td width="020px">Excluir</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td width="040px">@item.IdUsuarioPerfil</td>
+                                    <td width="200px">@item.Descricao</td>
+                                    <td width="070px">@item.UsuarioInclusaoNome</td>
+                                    <td width="070px">@item.DtUsuarioInclusao</td>
+                                    <td width="070px">@item.UsuarioAlteracaoNome</td>
+                                    <td width="070px">@item.DtUsuarioAlteracao</td>
+                                    <td width="020px">
+                                        <a href="/UsuarioPerfil/AbrirAlterarUsuarioPerfil/@item.IdUsuarioPerfil" class="glyphicon glyphicon-edit col-md-1" style="cursor:pointer" uib-tooltip=""></a>
+                                    </td>
+                                    <td width="020px">
+                                        <a type="button" class="glyphicon glyphicon-trash col-md-1" style="cursor:pointer" onclick="MensagemConfirma('Confirme ?','Deseja apagar dados do Perfil ?','@Url.Action("InativarUsuarioPerfil", "UsuarioPerfil", new { id = @item.IdUsuarioPerfil })')"></a>
+                                    </td>
+                                </tr>        
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+            <a href="/UsuarioPerfil/IncluirUsuarioPerfil">
+                <div class="panel-footer">
+                    <span class="pull-left btn btn-default">Adicionar Perfil</span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+

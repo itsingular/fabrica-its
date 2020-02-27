@@ -1,0 +1,9 @@
+C:\Desenvolvimento\master\ItsLaw.DAO\bin\Debug\ItsLaw.DAO.dll
+C:\Desenvolvimento\master\ItsLaw.DAO\bin\Debug\ItsLaw.DAO.pdb
+C:\Desenvolvimento\master\ItsLaw.DAO\bin\Debug\ItsLaw.Entidades.dll
+C:\Desenvolvimento\master\ItsLaw.DAO\bin\Debug\ItsLaw.Entidades.pdb
+C:\Desenvolvimento\master\ItsLaw.DAO\bin\Debug\ItsLaw.Entidades.dll.config
+C:\Desenvolvimento\master\ItsLaw.DAO\obj\Debug\ItsLaw.DAO.csprojAssemblyReference.cache
+C:\Desenvolvimento\master\ItsLaw.DAO\obj\Debug\ItsLaw.DAO.csproj.CopyComplete
+C:\Desenvolvimento\master\ItsLaw.DAO\obj\Debug\ItsLaw.DAO.dll
+C:\Desenvolvimento\master\ItsLaw.DAO\obj\Debug\ItsLaw.DAO.pdb

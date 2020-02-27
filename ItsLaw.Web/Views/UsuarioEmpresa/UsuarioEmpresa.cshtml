@@ -1,0 +1,75 @@
+﻿@model ItsLaw.Web.ViewModels.UsuarioEmpresaViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script src="@Url.Content("~/Content/Scripts/jquery-1.10.2.js")"                               type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.js")"                             type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.unobtrusive.js")"                 type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.unobtrusive.method.cpfcnpj.js")"  type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.maskedinput.js")"                          type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/ItsLaw-campos-formatados.js")"                    type="text/javascript"></script>
+
+
+<form action="/UsuarioEmpresa/SalvarUsuarioEmpresa" method="post">
+    @Html.AntiForgeryToken()
+
+
+    <div class="row">
+        @Html.HiddenFor(model => model.IdUsuario)
+        @Html.HiddenFor(model => model.IdMaster)
+        @Html.HiddenFor(model => model.IdUsuarioAlteracao)
+        @Html.HiddenFor(model => model.DtUsuarioAlteracao)
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <table style="width:100%">
+                        <tr>
+                            <td>
+                                <h3><b>Alteração de Empresa Selecionada</b></h3>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-4">
+                                <label>Usuário Atual</label>
+                                <input type="text" name="DescricaoPerfil" class="form-control" value="@ViewBag.UsuarioLoginAtual" />
+                            </div>
+                            <div class="col-md-4">
+                                <label>Empresa Atual</label>
+                                <input type="text" name="DescricaoPerfil" class="form-control" value="@ViewBag.UsuarioEmpresaAtual" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-8">
+                                <label>Selecione a NOVA Empresa</label>
+                                @Html.DropDownListFor(model => model.IdEmpresa, new SelectList(ViewBag.TabUsuarioEmpresa, "IdEmpresa", "Nome"), "Escolha a Empresa", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.IdEmpresa, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- ==================================================================== Botoes no Rodape =================================-->
+        <div class="row-form tar row-form-no-border">
+            <a href="@Url.Action("Index"  , "MenuPrincipal" )"><div class="btn btn-success warning">Voltar</div></a>
+            &nbsp;
+            &nbsp;
+            <input type="submit" class="btn btn-success btn-tam-1 warning" name="name" value="Alterar a Empresa" />
+            &nbsp;&nbsp;
+        </div>
+    </div>
+
+</form>

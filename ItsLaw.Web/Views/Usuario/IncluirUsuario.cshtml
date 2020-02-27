@@ -1,0 +1,91 @@
+﻿@model ItsLaw.Web.ViewModels.UsuarioViewModel
+
+@{
+    ViewBag.Title = "IncluirUsuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="@Url.Content("~/Content/Scripts/jquery-1.10.2.js")"                               type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.js")"                             type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.unobtrusive.js")"                 type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.validate.unobtrusive.method.cpfcnpj.js")"  type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/jquery.maskedinput.js")"                          type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/ItsLaw-campos-formatados.js")"                    type="text/javascript"></script>
+
+
+
+@using (Html.BeginForm("IncluirUsuario", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-horizontal block-fluid" data-ng-controller="UsuarioController">
+        <div class="head clearfix">
+            <div class="isw-grid"></div>
+            <h3>Inclusão de Usuário</h3>
+        </div>
+
+        <!-- ==================================================================== Identificacao ====================================-->
+        <div class="panel-body">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Dados do Usuário</h3>
+                    </div>
+                    <div class="col-md-6">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-0" })
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-6">
+                        @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-0" })
+                        @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-3">
+                        @Html.LabelFor(model => model.Apelido, htmlAttributes: new { @class = "control-label col-md-0" })
+                        @Html.EditorFor(model => model.Apelido, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Apelido, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-4">
+                        @Html.LabelFor(model => model.IdEmpresa, new { @class = "control-label col-md-0" })
+                        @Html.DropDownListFor(model => model.IdEmpresa, new SelectList(ViewBag.EmpresaDescricao, "IdEmpresa", "Nome"), "Escolha a Empresa do Usuario", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IdEmpresa, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-4">
+                        @Html.LabelFor(model => model.IdUsuarioPerfil, new { @class = "control-label col-md-0" })
+                        @Html.DropDownListFor(model => model.IdUsuarioPerfil, new SelectList(ViewBag.PerfilDescricao, "IdUsuarioPerfil", "Descricao"), "Escolha o Perfil do Usuario", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.IdUsuarioPerfil, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-5">
+                        @Html.LabelFor(model => model.SenhaCripto, htmlAttributes: new { @class = "control-label col-md-0" })
+                        @Html.EditorFor(model => model.SenhaCripto, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SenhaCripto, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ==================================================================== Fotos ============================================-->
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Foto do Usuário (Mobile)</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-md-8">
+                            @Html.LabelFor(model => model.ImageUpload, new { @class = "control-label col-md-0" })
+                            @Html.TextBoxFor(model => model.ImageUpload, new { type = "file", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ImageUpload, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ==================================================================== Datas ============================================-->
+            <div class="row-form tar row-form-no-border">
+                <a href="@Url.Action("Index", "Usuario")"><div class="btn btn-primary warning">Voltar</div></a>
+                <input type="submit" value="Adiciona Usuário" class="btn btn-primary warning" />
+            </div>
+        </div>
+    </div>
+}

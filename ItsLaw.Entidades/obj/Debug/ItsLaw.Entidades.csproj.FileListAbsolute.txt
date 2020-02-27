@@ -1,0 +1,15 @@
+C:\Desenvolvimento\master\ItsLaw.Entidades\bin\Debug\ItsLaw.Entidades.dll.config
+C:\Desenvolvimento\master\ItsLaw.Entidades\bin\Debug\ItsLaw.Entidades.dll
+C:\Desenvolvimento\master\ItsLaw.Entidades\bin\Debug\ItsLaw.Entidades.pdb
+C:\Desenvolvimento\master\ItsLaw.Entidades\bin\Debug\EntityFramework.dll
+C:\Desenvolvimento\master\ItsLaw.Entidades\bin\Debug\EntityFramework.SqlServer.dll
+C:\Desenvolvimento\master\ItsLaw.Entidades\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Desenvolvimento\master\ItsLaw.Entidades\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Desenvolvimento\master\ItsLaw.Entidades\bin\Debug\EntityFramework.xml
+C:\Desenvolvimento\master\ItsLaw.Entidades\bin\Debug\EntityFramework.SqlServer.xml
+C:\Desenvolvimento\master\ItsLaw.Entidades\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Desenvolvimento\master\ItsLaw.Entidades\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Desenvolvimento\master\ItsLaw.Entidades\obj\Debug\ItsLaw.Entidades.csproj.CopyComplete
+C:\Desenvolvimento\master\ItsLaw.Entidades\obj\Debug\ItsLaw.Entidades.dll
+C:\Desenvolvimento\master\ItsLaw.Entidades\obj\Debug\ItsLaw.Entidades.pdb
+C:\Desenvolvimento\master\ItsLaw.Entidades\obj\Debug\ItsLaw.Entidades.csprojAssemblyReference.cache
