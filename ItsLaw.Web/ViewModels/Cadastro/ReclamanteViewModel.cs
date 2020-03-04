@@ -123,6 +123,8 @@ namespace ItsLaw.Web.ViewModels
         [Display(Name = "Telefone")]
         public string Telefone { get; set; }
 
+        [Required(ErrorMessage = "Informe o celular do Reclamante", AllowEmptyStrings = false)]
+        [RegularExpression(@"^\(?\d{2}\)?[\s-]?[\s9]?\d{4}-?\d{4}$", ErrorMessage = "Informe um celular válido.")]
         [Display(Name = "Celular")]
         public string Celular { get; set; }
 

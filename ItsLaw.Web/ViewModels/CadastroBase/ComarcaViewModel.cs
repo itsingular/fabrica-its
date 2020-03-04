@@ -81,7 +81,9 @@ namespace ItsLaw.Web.ViewModels
         [Display(Name = "Estado")]               
         public string Estado                      { get; set; }
 
+        [Required(ErrorMessage = "Informe o telefone", AllowEmptyStrings = false)]
         [Display(Name = "Telefone")]
+        [RegularExpression(@"^\(?\d{2}\)?[\s-]?[\s9]?\d{4}-?\d{4}$", ErrorMessage = "Informe um telefone válido.")]
         public string Telefone                    { get; set; }
                                                  
         public int IdUsuarioInclusao             { get; set; }
